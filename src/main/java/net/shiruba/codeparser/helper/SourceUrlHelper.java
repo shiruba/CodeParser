@@ -6,6 +6,7 @@ package net.shiruba.codeparser.helper;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 
 import net.shiruba.codeparser.parser.EParserType;
 import net.shiruba.codeparser.parser.filter.PhpFilenameFilter;
@@ -22,9 +23,19 @@ public class SourceUrlHelper {
 		return new File(target.toURI());
 	}
 	
-	public static File[] getSubPackageFolders(URL target, int depth) throws URISyntaxException {
-		File parent = new File(target.toURI());
-		return parent.listFiles();
+	public static ArrayList<File> getSubPackageFolders(URL target, int depth) throws URISyntaxException {
+		ArrayList<File> subPackageList = null;
+		if (depth == 1) {
+			File parent = new File(target.getFile());
+			subPackageList = new ArrayList<File>();
+			
+			if (parent.exists() && parent.listFiles() != null) {
+				for (File file : parent.listFiles())
+					if (file.isDirectory())
+						subPackageList.add(file);
+			}
+		}
+		return subPackageList;
 	}
 	
 	public static String[] getActualSourceFiles(File file, EParserType type) {

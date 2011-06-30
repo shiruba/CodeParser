@@ -1,8 +1,5 @@
 package net.shiruba.codeparser.parser.result.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.shiruba.codeparser.parser.EParserResultType;
 import net.shiruba.codeparser.parser.result.IParserResult;
 
@@ -14,15 +11,43 @@ import net.shiruba.codeparser.parser.result.IParserResult;
  */
 public class ParserResult implements IParserResult {
 
-	private HashMap<String, EParserResultType> parsingResults = new HashMap<String, EParserResultType>();
-	
-	@Override
-	public Map<?, ?> getParsingResult() {
-		return parsingResults;
-	}
-	
-	public void putResult(String key, EParserResultType value) {
-		parsingResults.put(key, value);
-	}
+	private String key = null;
+	private EParserResultType resultType = null;
 
+	public ParserResult(String key, EParserResultType resultType) {
+		this.key = key;
+		this.resultType = resultType;
+	}
+	
+	/* (non-Javadoc)
+	 * @see net.shiruba.codeparser.parser.result.IParserResult#setKey(java.lang.String)
+	 */
+	@Override
+	public void setKey(String key) {
+		this.key = key;
+	}
+	
+	/* (non-Javadoc)
+	 * @see net.shiruba.codeparser.parser.result.IParserResult#getKey()
+	 */
+	@Override
+	public String getKey() {
+		return key;
+	}
+	
+	/* (non-Javadoc)
+	 * @see net.shiruba.codeparser.parser.result.IParserResult#setResult(net.shiruba.codeparser.parser.EParserResultType)
+	 */
+	@Override
+	public void setResult(EParserResultType resultType) {
+		this.resultType = resultType;
+	}
+	
+	/* (non-Javadoc)
+	 * @see net.shiruba.codeparser.parser.result.IParserResult#getResult()
+	 */
+	@Override
+	public EParserResultType getResult() {
+		return resultType;
+	}
 }

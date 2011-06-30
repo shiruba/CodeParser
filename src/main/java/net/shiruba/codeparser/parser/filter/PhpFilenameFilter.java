@@ -7,8 +7,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 
 /**
- * TODO: Complete comments!
- *
  * CodeParser
  * @author Sascha Froehlich <sascha.froehlich@workdesk.eu>
  *

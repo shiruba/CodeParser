@@ -2,7 +2,6 @@ package net.shiruba.codeparser.parser;
 
 import net.shiruba.codeparser.parser.result.IParserResult;
 
-public interface IParser {
-	public void parse();
-	public IParserResult getParsingResult();
+public interface IParser extends Runnable {
+	public IParserResult parse(String sourceFile);
 }

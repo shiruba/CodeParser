@@ -1,7 +1,10 @@
 package net.shiruba.codeparser.parser.result;
 
-import java.util.Map;
+import net.shiruba.codeparser.parser.EParserResultType;
 
 public interface IParserResult {
-	public Map<?, ?> getParsingResult();
+	public void setResult(EParserResultType resultType);
+	public EParserResultType getResult();
+	public void setKey(String key);
+	public String getKey();
 }

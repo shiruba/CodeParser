@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import net.shiruba.codeparser.delegate.IParserDelegate;
-import net.shiruba.codeparser.delegate.impl.ParsingDelegate;
+import net.shiruba.codeparser.delegate.impl.ParserDelegate;
 import net.shiruba.codeparser.exception.NotYetImplementedException;
 import net.shiruba.codeparser.parser.EParserActionType;
 import net.shiruba.codeparser.parser.EParserType;
@@ -48,7 +48,7 @@ public class CodeParser {
 		URL sourceUrl = checkURL(args[2]);
 		URL targetUrl = checkURL(args[3]);
 		
-		IParserDelegate parsingDelegate = new ParsingDelegate(action, type, sourceUrl, targetUrl);
+		IParserDelegate parsingDelegate = new ParserDelegate(action, type, sourceUrl, targetUrl);
 		parsingDelegate.delegate();
 	}
 
